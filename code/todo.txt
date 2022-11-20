@@ -1,3 +1,16 @@
 faire :
+cherche et modifier la fonction (quand on clique 
+sur UE pour le deplacer)
+cherche et modifier la fonction (quand on agrandie 
+UE )
+chercher grace a la documentation tous ce qui est possible de faire qui 
+serait bien a apporte au projet 
+faire la connexion
+faire interface 
 
--creation de UE
+faire des insert dans la basse de donné 
+
+lien utile:https://doc.daypilot.org/scheduler/eventmoving/
+code utile dans exemple/src/ *.ts
+
+
