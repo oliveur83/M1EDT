@@ -40,6 +40,7 @@ export module DayPilot {
         eventResizeHandling?: "Update" | "CallBack" | "Disabled";
         eventRightClickHandling?: "ContextMenu" | "Enabled" | "Disabled";
         headerClickHandling?: "Enabled" | "Disabled";
+        headerDateFormat?: string;
         headerHeight?: number;
         headerTextWrappingEnabled?: boolean;
         height?: number;
@@ -738,6 +739,12 @@ export module DayPilot {
         static overlaps(start1: DayPilot.Date, end1: DayPilot.Date, start2: DayPilot.Date, end2: DayPilot.Date): boolean;
         static overlaps(start1: number, end1: number, start2: number, end2: number): boolean;
         static escapeHtml(text: string): string;
+    }
+
+    export class ColorUtil {
+        static darker(color: string, steps?: number): string;
+        static lighter(color: string, steps?: number): string;
+        static contrasting(color: string, light?: string, dark?: string): string;
     }
 
     export class Http {

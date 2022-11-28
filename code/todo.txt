@@ -1,8 +1,4 @@
-faire :
-cherche et modifier la fonction (quand on clique 
-sur UE pour le deplacer)
-cherche et modifier la fonction (quand on agrandie 
-UE )
+faire 1:
 chercher grace a la documentation tous ce qui est possible de faire qui 
 serait bien a apporte au projet 
 faire la connexion
@@ -13,4 +9,9 @@ faire des insert dans la basse de donné
 lien utile:https://doc.daypilot.org/scheduler/eventmoving/
 code utile dans exemple/src/ *.ts
 
+fonction move ligne 3830 du js =this.client.moveEnabled 
+fonction pour la taill 3846 du js =this.client.resizeEnabled
 
+fonction clique pour modification ligne 8206 a comprendre 
+
+probleme avec la modifcation de certain evenement 

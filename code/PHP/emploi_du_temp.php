@@ -11,7 +11,11 @@ $password = "";
 $conn = new PDO("mysql:host=$servername;dbname=m1edt", $username, $password);
 $sql = "SELECT * FROM cours ";
 $result = $conn->query($sql);
-
+if (!empty($_POST['username'])){
+if ($_POST['username']!="admin" || $_POST['password']!="admin")
+{
+    header('Location: http://localhost/M1EDT/PHP/connexion.php');
+}}
 $i = 0;
 //pour bouton semaine precedente ou suivante 
 // pour n semaines 
@@ -36,38 +40,50 @@ if (!empty($_POST['date_p'])) {
     <meta charset="utf-8" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="../helpers/v2/main.css?v=2022.3.432" type="text/css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" />
-    <script src="../js/daypilot-all.min.js?v=2022.3.432"></script>
-    <script src="../css/fichier.css"></script>
-
+    <script src="../JS/src/daypilot-calendar.src.js"></script>
+    <script src="../JS/src/daypilot-common.src.js"></script>
+    <script src="../JS/src/daypilot-datepicker.src.js"></script>
+    <script src="../JS/src/daypilot-menu.src.js"></script>
+    <script src="../JS/src/daypilot-modal.src.js"></script>
+    <script src="../JS/src/daypilot-month.src.js"></script>
+    <script src="../JS/src/daypilot-navigator.src.js"></script>
+    
+    <link rel="stylesheet" href="../CSS/emploi.css">
     <!-- /head -->
+    <style>
 
+
+  </style>
 </head>
 
 <body>
+    
     <center>
         <table>
             <tr>
+                <td>
                 <form action="emploi_du_temp.php" method="post">
                     <input type="submit" value="semaine precedente">
                     <input type="hidden" name="date_p" value="toto">
                     <input type="hidden" name="semaine" value="<?php echo $i ?>">
 
                 </form>
-            </tr>
-            <tr>
+                </td><td>
+            <p class=paragraphe>
                 <?php echo "semaine du: " . $date ?>
-            </tr>
-            <tr>
+                </p>
+                </td>
+                <td>
                 <form action="emploi_du_temp.php" method="post">
                     <input type="submit" value="semaine suivante">
                     <input type="hidden" name="date_s" value="toto">
                     <input type="hidden" name="semaine" value="<?php echo $i ?>">
                 </form>
+                </td>
             </tr>
         </table>
     </center>
+
 
     <div id="dp"></div>
 
@@ -86,6 +102,7 @@ if (!empty($_POST['date_p'])) {
                     { name: "Green", id: "#6aa84f"},
                     { name: "Yellow", id: "#f1c232"},
                     { name: "Red", id: "#cc0000"},
+                    { name: "black", id: "#000000"}
                 ];
                 // on cree les form que l'on veut 
                 // pour modifier
@@ -103,9 +120,11 @@ if (!empty($_POST['date_p'])) {
                     return;
                 }
                 // update de modification 
-                //TODO: faire les modificaiton dans BDD
+                
                 dp.events.update(modal.result);
-                //tofo modification
+            
+                //insertion in bdd
+
 
             },
             //?
@@ -165,10 +184,22 @@ if (!empty($_POST['date_p'])) {
         ];
         //permet de ajouter dans le planning 
         dp.update({events});
-
+        
     </script>
            
-
+    <table>
+        <tr>
+            <td>
+        <form action="connexion.php" method="post">
+            <input type="submit" value="admin">
+        </form>
+    </td><td>
+        <form action="creation_cours.php" method="post">
+            <input type="submit" value="creation evenement">
+        </form>
+    </td>
+    </tr>
+    </table>
 
 </body>
 
