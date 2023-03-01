@@ -2988,7 +2988,7 @@ if (typeof DayPilot.Global === 'undefined') {
             var start = e.data.start.value;
             var end = e.data.end.value;
             var cle = e.cache.id;
-            window.location.href = "emploi_du_temp.php?id=-1&start=" + start+ "&end=" + end + "&cle=" + cle
+            window.location.href = "emploi_du_temps?id=-1&start=" + start+ "&end=" + end + "&cle=" + cle
          
         };
 
@@ -3776,78 +3776,8 @@ if (typeof DayPilot.Global === 'undefined') {
         })( jQuery );
     }
 
-    (function registerAngularModule() {
-
-        var app = DayPilot.am();
-
-        if (!app) {
-            return;
-        }
-
-        app.directive("daypilotCalendar", ['$parse', function($parse) {
-//        app.directive("daypilotCalendar", function() {
-            return {
-                "restrict": "E",
-                "template": "<div></div>",
-                "replace": true,
-                "link": function (scope, element, attrs) {
-
-                    var calendar = new DayPilot.Calendar(element[0]);
-                    calendar._angular.scope = scope;
-                    calendar.init();
-
-                    var oattr = attrs["id"];
-                    if (oattr) {
-                        scope[oattr] = calendar;
-                    }
-
-                    // save DayPilot.Calendar object in the specified variable
-                    var pas = attrs["publishAs"];
-                    if (pas) {
-                        var getter = $parse(pas);
-                        var setter = getter.assign;
-                        setter(scope, calendar);
-                    }
-
-                    // bind event handlers from attributes starting with "on"
-                    for (var name in attrs) {
-                        if (name.indexOf("on") === 0) {  // event handler
-                            (function(name) {
-                                calendar[name] = function(args) {
-                                    var f = $parse(attrs[name]);
-                                    scope["$apply"](function() {
-                                        f(scope, {"args": args});
-                                    });
-                                };
-                            })(name);
-                        }
-                    }
-
-                    var watch = scope["$watch"];
-                    var config = attrs["config"] || attrs["daypilotConfig"];
-                    var events = attrs["events"] || attrs["daypilotEvents"];
-
-                    watch.call(scope, config, function (value) {
-                        //var bbOld = calendar.businessBeginsHour;
-
-                        for (var name in value) {
-                            calendar[name] = value[name];
-                        }
-                        calendar.update();
-                        calendar._doInit();
-                    }, true);
-
-                    watch.call(scope, events, function(value) {
-                        //var calendar = element.data("calendar");
-                        calendar.events.list = value;
-                        calendar.update();
-                    }, true);
-
-                }
-            };
-        }]);
-    })();
-
+    
+    
 
 
 })();

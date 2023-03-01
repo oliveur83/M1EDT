@@ -1349,9 +1349,11 @@ if (typeof(DayPilot) === 'undefined') {
             }
             buttonOK.onclick = function(e) {
                 if (f.validate()) {
+
                     modal.close(f.serialize());
                 }
                 // modal.closeSerialized();
+                console.log(modal.result.text)
             };
 
             var space = document.createTextNode(" ");
@@ -1361,6 +1363,7 @@ if (typeof(DayPilot) === 'undefined') {
             buttonCancel.className = modal.theme + "_cancel";
             buttonCancel.onclick = function(e) {
                 modal.close();
+
             };
             buttonCancel.onmousedown = function(e) {
                 f.canceling = true;

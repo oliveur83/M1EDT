@@ -11,7 +11,7 @@
     <div id="container">
         <!-- zone de connexion -->
 
-        <form action="emploi_du_temp.php" method="POST">
+        <form action="emploi_du_temps" method="POST">
             <h1>Connexion</h1>
 
             <label><b>Nom d'utilisateur</b></label>
