@@ -1,0 +1,26 @@
+
+todo
+clique pour cree un evenement sa crée dans une filier
+de même pour la page 
+completer la base de donnée 
+
+
+amélioration:
+quand on change de mode entre promo et salle par exemple sa revine a la semaine de maintenant changer ca 
+
+
+
+evenement_groupe_liaison
+INSERT INTO `evenement_groupe_liaison` (`id_evenement`, `code_groupe`) VALUES ('17', 'L1info');
+evenement_user_liaison
+INSERT INTO `evenement_user_liaison` (`id_evenement`, `id_user`) VALUES ('17', '8');
+
+
+EVENEMENT
+INSERT INTO `evenement` (`id_evenement`, `titre_evenement`, `categorie_evenement`, `date_debut_evenement`, `date_fin_evenement`, `couleur_evenement`, `remarques_evenement`, `code_ue`, `id_salle`) VALUES ('18', 'physique', NULL, '2023-02-27T08:00:00', '2023-02-27T10:00:00', '', NULL, 'L1S1UE1', '2');
+INSERT INTO `evenement` (`id_evenement`, `titre_evenement`, `categorie_evenement`, `date_debut_evenement`, `date_fin_evenement`, `couleur_evenement`, `remarques_evenement`, `code_ue`, `id_salle`) VALUES ('19', 'math', NULL, '2023-02-27T10:00:00', '2023-02-27T12:00:00', '', NULL, 'L1S1UE1', '2');
+INSERT INTO `evenement` (`id_evenement`, `titre_evenement`, `categorie_evenement`, `date_debut_evenement`, `date_fin_evenement`, `couleur_evenement`, `remarques_evenement`, `code_ue`, `id_salle`) VALUES ('20', 'INFO', NULL, '2023-02-27T13:00:00', '2023-02-27T15:00:00', '', NULL, 'L1S1UE1', '2');
+INSERT INTO `evenement` (`id_evenement`, `titre_evenement`, `categorie_evenement`, `date_debut_evenement`, `date_fin_evenement`, `couleur_evenement`, `remarques_evenement`, `code_ue`, `id_salle`) VALUES ('21', 'SVT', NULL, '2023-02-27T15:00:00', '2023-02-27T17:00:00', '', NULL, 'L1S1UE1', '2');
+
+
+                
