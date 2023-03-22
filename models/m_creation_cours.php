@@ -289,10 +289,10 @@ function test_de_chevauchement_insert()
             OR code_groupe = '" . $_POST['code_groupe'] . "'
             OR id_user= " . $_POST['code_user'] . " )";
     $result = mysqli_query($conn1, $sql1);
-    while ($rowEns = $result_salle->fetch_assoc()) {
+    if ($rowEns = $result->fetch_assoc()) {
         $result = True;
     }
-    if ($result == true) {
+    if ($result) {
         $validation_insertion_chevauchement = True;
     } else {
        
