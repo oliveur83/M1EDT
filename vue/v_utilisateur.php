@@ -3,8 +3,8 @@
 <html>
 
 <head>
-<link rel="stylesheet" href="../css/style.css" media="screen" type="text/css" />
-
+    <title>Gestion utilisateur - EDT</title>
+    <link rel="stylesheet" href="../css/style.css" media="screen" type="text/css" />
 </head>
 
 <body>
@@ -46,7 +46,7 @@ while ($rowEns = $result_code_u->fetch_assoc()) {
     <input type="submit" value="retour ">
 </form>
 <form action="creationutilisateur" method="post">
-    <h1>SUPRIMMER utilisateur</h1>    
+    <h1>SUPPRIMER utilisateur</h1>    
     <label><b> identifiant du user </b></label>
     <select id="user_sup" name="user_sup">
         <?php

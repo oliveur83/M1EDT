@@ -2,6 +2,7 @@
 
 <head>
     <meta charset="utf-8">
+    <title>Connexion - EDT</title>
     <!-- importer le fichier de style -->
     <link rel="stylesheet" href="../CSS/style.css" media="screen" type="text/css" />
 </head>
@@ -20,7 +21,7 @@
             <label><b>Mot de passe</b></label>
             <input type="password" placeholder="Entrer le mot de passe" name="password" required>
 
-            <input type="submit" id='submit' value='LOGIN'>
+            <input type="submit" id='submit' value='Se connecter'>
 
         </form>
     </div>

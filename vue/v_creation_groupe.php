@@ -3,8 +3,8 @@
 <html>
 
 <head>
-<link rel="stylesheet" href="../css/style.css" media="screen" type="text/css" />
-
+    <title>Création groupe - EDT</title>
+    <link rel="stylesheet" href="../css/style.css" media="screen" type="text/css" />
 </head>
 
 <body>

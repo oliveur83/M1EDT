@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
    <head>
-      <title>Open-Source JavaScript Event Calendar</title>
+      <title>Emploi du temps</title>
       <!-- head -->
       <meta charset="utf-8" />
       <meta name="referrer" content="no-referrer-when-downgrade" />

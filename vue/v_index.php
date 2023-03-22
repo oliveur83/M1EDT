@@ -4,7 +4,8 @@
 <html>
 
 <head>
-<link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
+    <title>Accueil - Emploi du temps</title>
+    <link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
 </head>
 
 <body>
