@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 22 mars 2023 à 14:31
+-- Généré le : mer. 22 mars 2023 à 14:54
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -304,6 +304,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `id_user` int(11) NOT NULL AUTO_INCREMENT,
   `nom_user` varchar(500) COLLATE utf8mb4_bin NOT NULL,
   `prenom_user` varchar(500) COLLATE utf8mb4_bin NOT NULL,
+  `mdp_user` varchar(2047) COLLATE utf8mb4_bin NOT NULL,
   PRIMARY KEY (`id_user`)
 ) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
@@ -311,25 +312,26 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Déchargement des données de la table `user`
 --
 
-INSERT INTO `user` (`id_user`, `nom_user`, `prenom_user`) VALUES
-(1, 'Paoli', 'Christophe'),
-(2, 'Delhom', 'Marielle'),
-(3, 'Vareille', 'Matthieu'),
-(5, 'Bisgambiglia', 'Paul-Antoine'),
-(6, 'olivier', 'tom'),
-(7, 'BAZAN', 'CLEMENT'),
-(8, 'AFSAOUI', 'THEO'),
-(9, 'CHAMPION', 'YOUSSEF'),
-(10, 'GILOT', 'VALERIE'),
-(11, 'LANGEVIN', 'PHILLIPE'),
-(12, 'GIES', 'VALENTIN'),
-(13, 'nguyen', 'christian'),
-(14, 'joel', 'joel'),
-(15, 'Bisgambiglia', 'Paul'),
-(16, 'Fancello', 'Mathieu'),
-(17, 'Duchaud', 'Jean'),
-(18, 'Poggi', 'Frederic'),
-(19, 'Williams', 'Marc');
+INSERT INTO `user` (`id_user`, `nom_user`, `prenom_user`, `mdp_user`) VALUES
+(1, 'admin', 'admin', 'admin'),
+(2, 'Delhom', 'Marielle', 'mdp'),
+(3, 'Vareille', 'Matthieu', 'mdp'),
+(4, 'Paoli', 'Christophe', 'mdp'),
+(5, 'Bisgambiglia', 'Paul-Antoine', 'mdp'),
+(6, 'olivier', 'tom', 'mdp'),
+(7, 'BAZAN', 'CLEMENT', 'mdp'),
+(8, 'AFSAOUI', 'THEO', 'mdp'),
+(9, 'CHAMPION', 'YOUSSEF', 'mdp'),
+(10, 'GILOT', 'VALERIE', 'mdp'),
+(11, 'LANGEVIN', 'PHILLIPE', 'mdp'),
+(12, 'GIES', 'VALENTIN', 'mdp'),
+(13, 'nguyen', 'christian', 'mdp'),
+(14, 'joel', 'joel', 'mdp'),
+(15, 'Bisgambiglia', 'Paul', 'mdp'),
+(16, 'Fancello', 'Mathieu', 'mdp'),
+(17, 'Duchaud', 'Jean', 'mdp'),
+(18, 'Poggi', 'Frederic', 'mdp'),
+(19, 'Williams', 'Marc', 'mdp');
 
 --
 -- Contraintes pour les tables déchargées
