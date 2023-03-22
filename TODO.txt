@@ -1,0 +1,14 @@
+TODO:
+
+regarder si je suprime un groupe pour evenemment faire la requete sql 
+car un event peut avoir plusieur filier 
+faire de meme pour ue (mettre null peut etre )
+
+
+
+
+amelioration:
+creation d'un base utilisteur 
+             
+             
+                

@@ -8,31 +8,36 @@
       <meta charset="utf-8" />
       <meta name="referrer" content="no-referrer-when-downgrade" />
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <script src="../JS/src/daypilot-calendar.src.js"></script>
+      <script src="../JS/src/dddaayyppilot-calendar.src.js" ></script>
       <script src="../JS/src/daypilot-common.src.js"></script>
       <script src="../JS/src/daypilot-datepicker.src.js"></script>
       <script src="../JS/src/daypilot-menu.src.js"></script>
       <script src="../JS/src/daypilot-modal.src.js"></script>
       <script src="../JS/src/daypilot-month.src.js"></script>
-      <script src="../JS/src/daypilot-navigator.src.js"></script>
+      <script src="../JS/src/daypilot-navigator.src.js"  ></script>
       <link rel="stylesheet" href="../css/Emploi.css">
       <!-- /head -->
-      <style>
-      </style>
+      <meta http-equiv="Cache-control" content="public, max-age=31536000">
+	<meta http-equiv="Expires" content="Sun, 13 Mar 2024 23:59:59 GMT">
+    <meta
+  name="description"
+  content="Mary's simple recipe for maple bacon donuts
+           makes a sticky, sweet treat with just a hint
+           of salt that you'll keep coming back for.">
    </head>
    <body>
    <ul>
    <form action="emploi_du_temps" method="post">
-  <li>   <a>
+  <li>   
       <input type="submit"  name="promotion" style="background-color: transparent; border: 0; color: #FFF" value="promotion">
- </a></li>
-  <li>   <a>
+ </li>
+  <li>   
       <input type="submit"  name="salle" style="background-color: transparent; border: 0; color: #FFF" value="salle">
- </a></li>
+ </li>
   <li>
-   <a>
+  
       <input type="submit"  name="enseignant" style="background-color: transparent; border: 0; color: #FFF" value="enseigant">
- </a>
+
 </li>
 </form>
 
@@ -101,7 +106,7 @@ endif;
                      <input type="submit" value="semaine precedente">
                      <input type="hidden" name="date_p" value="toto">
                      <input type="hidden" name="semaine" value="<?php
-echo $i;
+echo $_SESSION["index"];
 ?>">
                   </form>
                </td>
@@ -117,7 +122,7 @@ echo "semaine du: " . $date;
                      <input type="submit" value="semaine suivante">
                      <input type="hidden" name="date_s" value="toto">
                      <input type="hidden" name="semaine" value="<?php
-echo $i;
+echo $_SESSION["index"];
 ?>">
                   </form>
                </td>
@@ -137,10 +142,10 @@ echo $date;
              //pour la modification quand on clique dessus 
              onEventClick: async args => {
                 const colors = [
-                    {name: "Blue", id: "#3c78d8"},
-                    {name: "Green", id: "#6aa84f"},
-                    {name: "Yellow", id: "#f1c232"},
-                    {name: "Red", id: "#cc0000"},
+                    {name: "Blue", id: "#ff8040"},
+                    {name: "Green", id: "#0000ff"},
+                    {name: "Yellow", id: "#ff0080"},
+                    
                 ];
 
                 const form = [
@@ -171,41 +176,8 @@ echo $date;
              onTimeRangeSelected: async args => {
 
                 
-                 const form = [
-
-                     { name: "Name", id: "text"}
-                    
-                 ];
-        
-                 const data = {
-                     text: "event"
-                    
-                 };
-                 // a regarder !!!!!
-                 const modal = await DayPilot.Modal.form(form, data);
-        
-                 dp.clearSelection();
-        
-                 if (modal.canceled) {
-                     return;
-                 }
-                 //ajout dans planning 
-                
-                 dp.events.add({
-                     start: args.start,
-                     end: args.end,
-                     id: DayPilot.guid(),
-                     text: modal.result.text,
-                     barColor: "#3c78d8"
-                 });
-                 //insertion in database 
-                
-                 var barcolor = '3c78d8'
-                 var text = modal.result.text;
-                 var start = args.start;
-                 var end = args.end;
-                 window.location.href = "emploi_du_temps?id=" + 0 + "&text=" + text+ "&start=" + start+ "&end=" + end+ "&barcolor=" + barcolor;
-        
+          
+                 window.location.href = "creationcours"
              },
              //avant le rendu 
              onBeforeEventRender: args => {
@@ -235,12 +207,23 @@ while ($rowEns = $result->fetch()) {
     echo 'end: "' . $rowEns["date_fin_evenement"] . '",';
     echo 'id:' . $rowEns["id_evenement"] . ',';
     echo 'text: "' . $rowEns["titre_evenement"] . '",';
-    echo 'barColor: "#' . $rowEns["couleur_evenement"] . '"},';
+    echo 'barColor: "#' . $rowEns["couleur_evenement"] . '",';
+    echo 'groupe: "' . $rowEns["code_groupe"] . '",';
+    echo 'identifiant_user: "' . $rowEns["id_user"] . '",';
+    echo 'identifiant_salle: "' . $rowEns["id_salle"] . '",';
+    echo 'id_user: "' . $rowEns["nom_user"] .' '.$rowEns["prenom_user"]. '",';
+    echo 'id_salle: "' . $rowEns["nom_salle"] . '"},';
 }
-?>
+
+?>            {
+    start: "2023-03-06T12:00:00",
+    end: "2022-03-06T15:00:00",
+    id: 2,
+    text: "Event 2",
+    barColor: "#6aa84f"
+}
         ];
-        
-        
+        console.log(events)  
          //permet de ajouter dans le planning 
          dp.update({events});
         
@@ -259,12 +242,27 @@ if ($_SESSION["admin"]):
 ?>
             <td>
             <form action="creationcours" method="post">
-                  <input type="submit" value="creation_cours">
+                  <input type="submit" value="creation/modif/sup/cours">
                </form>
             </td>
             <td>
             <form action="creationutilisateur" method="post">
-        <input type="submit" value="creation utilisateur ">
+        <input type="submit" value="creation/modif/supr utilisateur ">
+    </form>
+    </td>
+    <td>
+            <form action="creationue" method="post">
+        <input type="submit" value="creation/modification/suprimmer ue ">
+    </form>
+    </td>
+    <td>
+            <form action="creationgroupe" method="post">
+        <input type="submit" value="creation/modification/suprimmer groupe">
+    </form>
+    </td>
+    <td>
+            <form action="creationsalle" method="post">
+        <input type="submit" value="creation/modification/suprimmer salle ">
     </form>
     </td>
     <?php

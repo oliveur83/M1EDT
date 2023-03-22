@@ -1739,7 +1739,7 @@ allowed params:
 
     DayPilot.Locale = function(id, config) {
         this.id = id;
-        this.dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        this.dayNames = ["dimanche", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         this.dayNamesShort = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
         this.monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         this.datePattern = "M/d/yyyy";
