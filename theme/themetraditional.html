@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Traditional CSS Theme (JavaScript Event Calendar)</title>
+
+    <!-- head -->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../css/main.css?v=2023.2.5596" type="text/css" rel="stylesheet"/>
+    <script src="../JS/daypilot-all.min.js?v=2023.2.5596"></script>
+
+    <!-- /head -->
+    <link type="text/css" rel="stylesheet" href="../theme/calendar_traditional.css?v=2023.2.5596"/>
+
+</head>
+<body>
+
+<!-- top -->
+<template id="content" data-version="2023.2.5596">
+
+    <!-- /top -->
+
+    <div class="note"><b>Note:</b> You can create a theme using the online <strong>DayPilot Theme Designer</strong>: <a
+        href="http://themes.daypilot.org/">http://themes.daypilot.org/</a></div>
+
+    <div id="dp"></div>
+
+    <div id="print"></div>
+
+    <script type="text/javascript">
+
+        var dp = new DayPilot.Calendar("dp");
+
+        // behavior and appearance
+        dp.theme = "calendar_traditional";
+
+        // view
+        dp.startDate = "2023-03-20";
+        dp.viewType = "Week";
+
+        // event creating
+        dp.onTimeRangeSelected = function (args) {
+            var name = prompt("New event name:", "Event");
+            if (!name) return;
+            var e = new DayPilot.Event({
+                start: args.start,
+                end: args.end,
+                id: DayPilot.guid(),
+                resource: args.resource,
+                text: "Event"
+            });
+            dp.events.add(e);
+            dp.clearSelection();
+            dp.message("Created");
+        };
+
+        dp.init();
+
+        var e = new DayPilot.Event({
+            start: new DayPilot.Date("2023-03-20T12:00:00"),
+            end: new DayPilot.Date("2023-03-20T12:00:00").addHours(3),
+            id: DayPilot.guid(),
+            text: "Special event"
+        });
+        dp.events.add(e);
+
+    </script>
+
+    <!-- bottom -->
+</template>
+
+
+<script src="../JS/app.js?v=2023.2.5596"></script>
+<!-- /bottom -->
+
+
+</body>
+</html>
+

@@ -3289,8 +3289,8 @@ if (typeof DayPilot.Global === 'undefined') {
                     throw new DayPilot.Exception("Event data item must be an object");
                 }
                 if (!edata.start) {
-                    throw new DayPilot.Exception("Event data item must specify 'start' property");
-                }
+                    console.log(edata.start)
+ }
                 if (!edata.end) {
                     throw new DayPilot.Exception("Event data item must specify 'end' property");
                 }

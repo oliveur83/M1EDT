@@ -1,5 +1,12 @@
 
 	<?php
+        /*
+    Nom du fichier : v_creation_cours.html
+    Auteur : Tom OLIVIER
+    Date : 27 août 2023
+    Description : cette page affiche les element html 
+    de creation,modification,supresion de cours
+   */
 // connexion a la database
 $servername = "localhost";
 $username   = "root";
@@ -27,28 +34,27 @@ if (!empty($_POST['groupe_mod'])) {
 //supresion groupe 
 if (!empty($_POST['groupe_sup'])) {
     
-    //$sql = "DELETE FROM groupe WHERE code_groupe ='" . $_POST['groupe_sup'] . "'";
-    //$conn->query($sql);
-    $sqla = "SELECT * FROM evenement LEFT JOIN evenement_groupe_liaison ON evenement_groupe_liaison.id_evenement = evenement.id_evenement where evenement_groupe_liaison.id_evenement IS NULL";
+
+    $sql = "DELETE FROM groupe WHERE code_groupe ='" . $_POST['groupe_sup'] . "'";
+    $conn->query($sql);
+    $sqla = "SELECT evenement.id_evenement as toto FROM evenement LEFT JOIN evenement_groupe_liaison ON evenement_groupe_liaison.id_evenement = evenement.id_evenement where evenement_groupe_liaison.id_evenement IS NULL";
 
     // Executer la requête
     $result = mysqli_query($conn, $sqla);
-    
+   
     // Vérifier si la requête a échoué
     if (!$result) {
         echo "Erreur de requête : (" . mysqli_errno($conn) . ") " . mysqli_error($conn);
     } else {
         // Vérifier si la requête a retourné des résultats
         if (mysqli_num_rows($result) > 0) {
+            
             while ($row = mysqli_fetch_assoc($result)) {
+                
                 // Traitement des données ici
-                print_r($row);
-                if ($row['id_evenement']==62)
-                {
-                    echo "ptn je suis trop fort";
-                }
-                    //$sql = "DELETE FROM evenement WHERE titre_evenement ='" . $row['titre_evenement'] . "'";
-                    //$conn->query($sql);
+                $sqla = "DELETE FROM evenement WHERE id_evenement ='" . $row['toto']. "'";
+                // Executer la requête
+                $resultt = mysqli_query($conn, $sqla);
             }
         } else {
             echo "La requête est vide.";
