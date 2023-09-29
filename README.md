@@ -15,6 +15,7 @@ un emploi du temps.
 - PHP (MVC)
 - JavaScript
 - MySQL
+- daypilot(open source biblio js)
 
 ## Installation
 
